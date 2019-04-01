@@ -115,7 +115,7 @@ function exchangeCode($code) {
     $query = http_build_query([
         'grant_type' => 'authorization_code',
         'code' => $code,
-        'redirect_uri' => 'https://lighthouse247.com/shared_services/HIPAAPW/hipaa_pw.php'
+        'redirect_uri' => 'Redirect URI'
     ]);
     $headers = [
         'Authorization: Basic ' . $authHeaderSecret,
@@ -124,7 +124,7 @@ function exchangeCode($code) {
         'Connection: close',
         'Content-Length: 0'
     ];
-    $url = 'https://dev-615245.okta.com/oauth2/default/v1/token?' . $query;
+    $url = $base_url.'token?' . $query;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
